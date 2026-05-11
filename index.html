@@ -1528,6 +1528,10 @@
   const fy = document.getElementById('footYear');
   if (fy) fy.textContent = new Date().getFullYear();
 </script>
-
+<script>
+  const slider = document.getElementById('productSlider');
+  function slideLeft() { slider.scrollBy({ left: -340, behavior: 'smooth' }); }
+  function slideRight() { slider.scrollBy({ left: 340, behavior: 'smooth' }); }
+</script>
 </body>
 </html>
