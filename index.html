@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Paleblue Earth — Power That Keeps On Giving. For Your Gear, For The Planet.</title>
+<meta name="description" content="USB-C rechargeable lithium batteries built to replace single-use disposables. AA, AAA, 9V, C, D, CR123A. 1,000+ charge cycles. Made for Earth's stewards." />
+<meta property="og:title" content="Paleblue Earth — End Single-Use Battery Waste" />
+<meta property="og:description" content="One Paleblue replaces over 1,000 disposable batteries. Power your gear. Protect the planet." />
+<meta name="theme-color" content="#FAF6EC" />
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,600&family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          // Bright daytime ocean palette
+          'sand': '#FAF6EC',          // primary cream bg
+          'parchment': '#F5EDE0',     // warmer cream
+          'sunrise': '#FFD9B0',       // warm peach (sunrise glow)
+          'sky': '#E6F4F1',           // softest sky
+          'seafoam': '#D7EDE8',       // pale green-blue
+          'lagoon': '#A8D8DE',        // light teal
+          'tide': '#6FBDC4',           // mid teal
+          'paleblue': '#10C1D0',      // brand cyan
+          'deep-sea': '#077A85',      // anchor teal
+          'midnight': '#0A2B3A',      // deepest accent / text on light
+          'kelp': '#2F5D3F',          // deep forest green
+          'leaf': '#6BAE6E',          // mid green (positive)
+          'moss': '#A2C2A0',          // pale green
+          'rust': '#C24E2C',          // urgency
+          'ember': '#E67E40',          // softer rust
+          'gray-mark': '#838588',     // Paleblue brand gray
+          'ink': '#1A2B3A',           // body text
+          'ink-2': '#3F5260',         // secondary text
+          'ink-3': '#7A8A95',         // tertiary
+        },
+        fontFamily: {
+          'display': ['"Bebas Neue"', 'sans-serif'],
+          'serif': ['"Fraunces"', 'Georgia', 'serif'],
+          'sans': ['Inter', 'system-ui', 'sans-serif'],
+          'mono': ['"JetBrains Mono"', 'monospace'],
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  * { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #FAF6EC;
+    color: #1A2B3A;
+    overflow-x: hidden;
+  }
+
+  /* Subtle dot grid in cream */
+  .dot-bg {
+    background-image: radial-gradient(rgba(16, 193, 208, 0.08) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+
+  /* Type helpers */
+  .display { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.01em; }
+  .serif { font-family: 'Fraunces', Georgia, serif; }
+  .serif-italic { font-family: 'Fraunces', Georgia, serif; font-style: italic; font-variation-settings: "SOFT" 30; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  /* Gradient text */
+  .text-sunrise {
+    background: linear-gradient(135deg, #C24E2C 0%, #E67E40 50%, #FFD9B0 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .text-paleblue {
+    background: linear-gradient(135deg, #077A85 0%, #10C1D0 50%, #6FBDC4 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .text-leaf {
+    background: linear-gradient(135deg, #2F5D3F 0%, #6BAE6E 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Cards — light theme */
+  .card {
+    background: linear-gradient(135deg, #FFFFFF 0%, #FAF6EC 100%);
+    border: 1px solid rgba(16, 193, 208, 0.12);
+    box-shadow: 0 1px 3px rgba(10, 43, 58, 0.04), 0 8px 24px rgba(10, 43, 58, 0.05);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .card:hover {
+    border-color: rgba(16, 193, 208, 0.4);
+    box-shadow: 0 4px 12px rgba(10, 43, 58, 0.06), 0 16px 40px rgba(16, 193, 208, 0.1);
+    transform: translateY(-2px);
+  }
+
+  /* Alert card for crisis section — still warm */
+  .alert-card {
+    background: linear-gradient(135deg, #FFF7F0 0%, #FFEEE0 100%);
+    border: 1px solid rgba(194, 78, 44, 0.25);
+  }
+
+  /* CTAs */
+  .btn-primary {
+    background: linear-gradient(135deg, #10C1D0 0%, #077A85 100%);
+    color: #FAF6EC;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+    transition: left 0.6s ease;
+  }
+  .btn-primary:hover::before { left: 100%; }
+  .btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 28px rgba(16, 193, 208, 0.35);
+  }
+  .btn-dark {
+    background: #0A2B3A;
+    color: #FAF6EC;
+    font-weight: 700;
+    transition: all 0.3s ease;
+  }
+  .btn-dark:hover {
+    background: #1A3B4A;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(10, 43, 58, 0.25);
+  }
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid rgba(10, 43, 58, 0.2);
+    color: #0A2B3A;
+    transition: all 0.3s ease;
+  }
+  .btn-ghost:hover {
+    background: rgba(16, 193, 208, 0.06);
+    border-color: #10C1D0;
+    color: #077A85;
+  }
+
+  /* Animation */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .reveal { animation: fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
+
+  @keyframes pulseDot {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(107, 174, 110, 0.5); }
+    70% { box-shadow: 0 0 0 8px rgba(107, 174, 110, 0); }
+  }
+  .pulse-dot { animation: pulseDot 2s infinite; }
+
+  @keyframes pulseAlert {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(194, 78, 44, 0.5); }
+    70% { box-shadow: 0 0 0 8px rgba(194, 78, 44, 0); }
+  }
+  .pulse-alert { animation: pulseAlert 2s infinite; }
+
+  /* Sunburst rotation for the brand mark */
+  @keyframes sunburstSpin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  .sunburst-anim { animation: sunburstSpin 60s linear infinite; transform-origin: center; }
+
+  /* Gentle wave float */
+  @keyframes wave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .wave-float { animation: wave 5s ease-in-out infinite; }
+
+  /* Tickers */
+  .ticker { font-variant-numeric: tabular-nums; }
+
+  /* Section eyebrow */
+  .sec-num {
+    font-family: 'JetBrains Mono', monospace;
+    color: #077A85;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 0.25em; text-transform: uppercase;
+  }
+
+  /* Citation pill */
+  .cite {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    background: rgba(7, 122, 133, 0.10);
+    color: #077A85;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-left: 4px;
+    vertical-align: super;
+  }
+
+  /* Hero spotlight — warm sunrise glow */
+  .hero-light::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1400px; height: 900px;
+    background: radial-gradient(ellipse at 50% 30%, rgba(255, 217, 176, 0.5) 0%, rgba(231, 244, 241, 0.3) 35%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Selection */
+  ::selection { background: rgba(16, 193, 208, 0.3); color: #0A2B3A; }
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #F5EDE0; }
+  ::-webkit-scrollbar-thumb { background: rgba(16, 193, 208, 0.35); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: rgba(16, 193, 208, 0.55); }
+
+  /* Stat block hover */
+  .stat-block { transition: all 0.4s ease; }
+  .stat-block:hover { transform: translateY(-3px); }
+
+  /* Wave divider */
+  .wave-divider {
+    display: block;
+    width: 100%;
+    height: 60px;
+  }
+
+  /* Photo placeholder */
+  .photo-placeholder {
+    position: relative;
+    background: linear-gradient(135deg, #E6F4F1 0%, #D7EDE8 50%, #A8D8DE 100%);
+    overflow: hidden;
+  }
+  .photo-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(7, 122, 133, 0.05) 1px, transparent 1px);
+    background-size: 16px 16px;
+  }
+  .photo-placeholder-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 8px;
+    color: #077A85;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    text-align: center;
+    padding: 24px;
+  }
+</style>
+</head>
+<body class="bg-sand text-ink">
+
+<!-- ============= AMBIENT BACKGROUND ============= -->
+<div class="fixed inset-0 dot-bg pointer-events-none opacity-50 z-0"></div>
+
+<!-- ============= NAVIGATION ============= -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-sand/85 backdrop-blur-xl border-b border-tide/15">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 h-16 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-3 group">
+      <!-- Sunburst icon — native SVG, brand-accurate -->
+      <svg viewBox="0 0 64 64" class="w-9 h-9 flex-shrink-0" aria-label="Paleblue Earth">
+        <g class="sunburst-anim">
+          <!-- 8 outer dots in ring, varied sizes for organic feel -->
+          <circle cx="32" cy="8"  r="3.5" fill="#10C1D0"/>
+          <circle cx="49" cy="15" r="2.8" fill="#10C1D0"/>
+          <circle cx="56" cy="32" r="3.5" fill="#10C1D0"/>
+          <circle cx="49" cy="49" r="2.8" fill="#10C1D0"/>
+          <circle cx="32" cy="56" r="3.5" fill="#10C1D0"/>
+          <circle cx="15" cy="49" r="2.8" fill="#10C1D0"/>
+          <circle cx="8"  cy="32" r="3.5" fill="#10C1D0"/>
+          <circle cx="15" cy="15" r="2.8" fill="#10C1D0"/>
+        </g>
+        <!-- center dot (static) -->
+        <circle cx="32" cy="32" r="7" fill="#10C1D0"/>
+      </svg>
+      <div class="leading-none">
+        <div class="text-[24px] font-bold tracking-tight"><span class="text-gray-mark">pale</span><span class="text-paleblue font-bold">blue</span></div>
+        <div class="text-[9px] text-deep-sea tracking-[0.25em] uppercase font-mono mt-0.5">Earth · Powered</div>
+      </div>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-7 text-sm text-ink-2">
+      <a href="#shop" class="hover:text-paleblue transition">Shop</a>
+      <a href="#crisis" class="hover:text-paleblue transition">The Crisis</a>
+      <a href="#how" class="hover:text-paleblue transition">How It Works</a>
+      <a href="#impact" class="hover:text-paleblue transition">Impact</a>
+      <a href="#mission" class="hover:text-paleblue transition">Our Mission</a>
+      <a href="#faq" class="hover:text-paleblue transition">FAQ</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <button class="text-ink-2 hover:text-paleblue transition" aria-label="Search">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+      </button>
+      <button class="relative text-ink-2 hover:text-paleblue transition" aria-label="Cart">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+      </button>
+      <a href="#shop" class="btn-primary inline-flex items-center gap-2 px-4 py-2 rounded-md text-xs uppercase tracking-wider">
+        Shop Now
+        <svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="top" class="relative z-10">
+
+<!-- ============= 1. HERO ============= -->
+<section class="relative pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden hero-light">
+
+  <!-- Background SVG illustration: mountains + ocean + sunrise -->
+  <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice"
+       class="absolute inset-x-0 bottom-0 w-full h-[280px] lg:h-[420px] pointer-events-none opacity-90"
+       aria-hidden="true">
+    <defs>
+      <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#FAF6EC" stop-opacity="0"/>
+        <stop offset="60%" stop-color="#FFD9B0" stop-opacity="0.35"/>
+        <stop offset="100%" stop-color="#A8D8DE" stop-opacity="0.55"/>
+      </linearGradient>
+      <linearGradient id="mtnFar" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#6FBDC4" stop-opacity="0.55"/>
+        <stop offset="100%" stop-color="#A8D8DE" stop-opacity="0.45"/>
+      </linearGradient>
+      <linearGradient id="mtnMid" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#077A85" stop-opacity="0.55"/>
+        <stop offset="100%" stop-color="#6FBDC4" stop-opacity="0.4"/>
+      </linearGradient>
+      <linearGradient id="oceanG" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#10C1D0" stop-opacity="0.45"/>
+        <stop offset="100%" stop-color="#077A85" stop-opacity="0.25"/>
+      </linearGradient>
+    </defs>
+    <!-- Sky/sunrise wash -->
+    <rect width="1440" height="600" fill="url(#skyG)"/>
+    <!-- Sun (subtle, behind mountains) -->
+    <circle cx="1080" cy="280" r="80" fill="#FFD9B0" opacity="0.55"/>
+    <circle cx="1080" cy="280" r="120" fill="#FFD9B0" opacity="0.25"/>
+    <!-- Far mountain layer -->
+    <path d="M0,400 L120,300 L200,340 L340,260 L420,310 L560,240 L660,290 L820,220 L920,280 L1060,230 L1180,290 L1280,250 L1440,310 L1440,600 L0,600 Z"
+          fill="url(#mtnFar)"/>
+    <!-- Mid mountain layer (sharper) -->
+    <path d="M0,440 L100,380 L220,420 L340,350 L460,400 L580,340 L720,400 L840,330 L960,390 L1080,360 L1200,400 L1320,350 L1440,400 L1440,600 L0,600 Z"
+          fill="url(#mtnMid)"/>
+    <!-- Ocean foreground -->
+    <path d="M0,490 L1440,470 L1440,600 L0,600 Z" fill="url(#oceanG)"/>
+    <!-- Subtle wave lines -->
+    <path d="M0,510 Q360,500 720,510 T1440,510" stroke="#FAF6EC" stroke-width="1" fill="none" opacity="0.4"/>
+    <path d="M0,540 Q360,530 720,540 T1440,540" stroke="#FAF6EC" stroke-width="1" fill="none" opacity="0.25"/>
+  </svg>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+
+    <!-- Live impact ticker pill -->
+    <div class="flex items-center justify-center mb-10 reveal" style="animation-delay: 0.05s">
+      <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/80 backdrop-blur border border-rust/20">
+        <span class="w-1.5 h-1.5 rounded-full bg-rust pulse-alert"></span>
+        <span class="text-[11px] mono text-ink tracking-wider uppercase">Live · <span id="liveTossed" class="text-rust font-bold">0</span> disposables tossed since you arrived</span>
+      </div>
+    </div>
+
+    <div class="text-center max-w-5xl mx-auto reveal" style="animation-delay: 0.15s">
+      <h1 class="display text-[60px] md:text-[88px] lg:text-[112px] leading-[0.92] mb-6 text-midnight">
+        <span class="block">END SINGLE-USE</span>
+        <span class="block">BATTERY WASTE.</span>
+        <span class="serif-italic text-[42px] md:text-[58px] lg:text-[72px] text-paleblue normal-case tracking-tight mt-2 block">Power the future.</span>
+      </h1>
+
+      <p class="text-lg md:text-xl text-ink-2 max-w-3xl mx-auto leading-relaxed mb-10">
+        One Paleblue replaces <span class="text-deep-sea font-semibold">1,000+ disposable batteries</span>. USB-C rechargeable. Built to last. Made for the people who actually want to leave the planet better than they found it.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-12">
+        <a href="#shop" class="btn-primary px-7 py-4 rounded-lg text-sm uppercase tracking-wider inline-flex items-center gap-2 w-full sm:w-auto justify-center">
+          Shop Rechargeables
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+        <a href="#crisis" class="btn-ghost px-7 py-4 rounded-lg text-sm uppercase tracking-wider inline-flex items-center gap-2 w-full sm:w-auto justify-center">
+          See the Impact
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </a>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[11px] mono uppercase tracking-wider text-ink-3">
+        <span class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-paleblue" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> 1,000+ Recharge Cycles</span>
+        <span class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-paleblue" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> USB-C Universal Charging</span>
+        <span class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-paleblue" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> Limited Lifetime Warranty</span>
+        <span class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-paleblue" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/></svg> Park City, Utah</span>
+      </div>
+    </div>
+
+    <!-- Hero Earth-Impact Dashboard — now light themed -->
+    <div class="mt-20 max-w-6xl mx-auto reveal" style="animation-delay: 0.35s">
+      <div class="card rounded-2xl p-2 lg:p-3 relative">
+        <div class="absolute -top-3 right-4 z-20 px-3 py-1 rounded-full bg-white border border-paleblue/30 flex items-center gap-2 text-[10px] mono uppercase tracking-wider text-deep-sea shadow-sm">
+          <span class="w-1.5 h-1.5 rounded-full bg-leaf pulse-dot"></span>
+          Earth Impact · Live
+        </div>
+
+        <div class="flex items-center gap-1.5 px-3 py-2 border-b border-tide/15">
+          <span class="w-2.5 h-2.5 rounded-full bg-rust/40"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-sunrise"></span>
+          <span class="w-2.5 h-2.5 rounded-full bg-leaf/60"></span>
+          <span class="ml-3 text-[10px] mono text-ink-3">Paleblue Earth · Live impact monitor</span>
+        </div>
+
+        <div class="p-4 lg:p-6 grid grid-cols-12 gap-3 lg:gap-4">
+
+          <div class="col-span-12 lg:col-span-7 rounded-xl p-5 lg:p-7 alert-card relative overflow-hidden">
+            <div class="absolute -top-12 -right-12 w-48 h-48 rounded-full" style="background: radial-gradient(circle, rgba(194,78,44,0.18) 0%, transparent 70%);"></div>
+            <div class="relative">
+              <div class="text-[10px] mono uppercase tracking-widest text-rust mb-3 flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-rust pulse-alert"></span>
+                The Crisis · Right Now
+              </div>
+              <div class="flex items-baseline gap-3 mb-2">
+                <div id="liveCounter" class="display text-5xl lg:text-7xl text-rust ticker">3,402,778</div>
+              </div>
+              <div class="text-sm text-ink leading-relaxed">
+                disposable batteries thrown out across the U.S. <strong>today</strong>. Estimates suggest roughly 10 million per day land in the trash. <span class="cite">[Source: EPA / industry est.]</span>
+              </div>
+              <div class="mt-4">
+                <span class="text-[10px] mono uppercase tracking-widest text-ink-3">Counter resets at midnight Eastern</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-span-12 lg:col-span-5 grid grid-cols-2 gap-3">
+            <div class="rounded-xl p-4 bg-sky border border-paleblue/15 flex flex-col justify-center">
+              <div class="text-[9px] uppercase tracking-widest text-ink-3 mono mb-2">Globally / year</div>
+              <div class="display text-3xl lg:text-4xl text-midnight">15B+</div>
+              <div class="text-[11px] text-ink-2 mt-1 leading-snug">batteries discarded worldwide<span class="cite">[Source: IEA est.]</span></div>
+            </div>
+            <div class="rounded-xl p-4 alert-card flex flex-col justify-center">
+              <div class="text-[9px] uppercase tracking-widest text-rust mono mb-2">Sent to landfill</div>
+              <div class="display text-3xl lg:text-4xl text-rust">~85%</div>
+              <div class="text-[11px] text-ink-2 mt-1 leading-snug">of U.S. household batteries<span class="cite">[Source: Call2Recycle]</span></div>
+            </div>
+            <div class="rounded-xl p-4 bg-seafoam border border-leaf/20 col-span-2 flex flex-col justify-center">
+              <div class="text-[9px] uppercase tracking-widest text-kelp mono mb-2 flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-leaf"></span>
+                Paleblue solution
+              </div>
+              <div class="flex items-baseline gap-2 flex-wrap">
+                <span class="display text-3xl lg:text-4xl text-midnight">1 pack</span>
+                <span class="serif-italic text-2xl text-kelp">→</span>
+                <span class="display text-3xl lg:text-4xl text-kelp">1,000+ saved</span>
+              </div>
+              <div class="text-[11px] text-ink-2 mt-1 leading-snug">Each Paleblue battery is engineered for 1,000+ recharge cycles, replacing roughly that many disposables over its life.<span class="cite">[Source: Paleblue specs]</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Wave divider into next section -->
+  <svg class="wave-divider mt-12" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,30 Q360,0 720,30 T1440,30 L1440,60 L0,60 Z" fill="#F5EDE0"/>
+  </svg>
+</section>
+
+<!-- ============= 2. THE BATTERY WASTE CRISIS ============= -->
+<section id="crisis" class="relative py-24 lg:py-32 bg-parchment">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="grid lg:grid-cols-12 gap-10 items-start mb-16">
+      <div class="lg:col-span-7">
+        <div class="sec-num mb-3">02 / The Crisis</div>
+        <h2 class="display text-5xl md:text-7xl text-midnight leading-[0.95] mb-5">
+          What happens to the batteries <span class="serif-italic text-rust normal-case">after they die.</span>
+        </h2>
+        <p class="text-lg text-ink-2 leading-relaxed">
+          Most disposable batteries don't go where you think they go. The vast majority slip past the curbside recycling bin and end up in landfills — where their chemistry doesn't quietly disappear. It seeps. Here's what we know, with sources where we have them.
+        </p>
+      </div>
+
+      <!-- SVG illustration: landscape with subtle "leaching" gradient -->
+      <div class="lg:col-span-5">
+        <div class="aspect-[4/3] rounded-2xl overflow-hidden card relative">
+          <svg viewBox="0 0 400 300" class="w-full h-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="crisisSky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFD9B0" stop-opacity="0.6"/>
+                <stop offset="100%" stop-color="#F5EDE0"/>
+              </linearGradient>
+              <linearGradient id="crisisGround" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#D9C9A0"/>
+                <stop offset="100%" stop-color="#C2A878"/>
+              </linearGradient>
+              <linearGradient id="crisisLeach" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#C24E2C" stop-opacity="0.0"/>
+                <stop offset="50%" stop-color="#C24E2C" stop-opacity="0.25"/>
+                <stop offset="100%" stop-color="#C24E2C" stop-opacity="0.5"/>
+              </linearGradient>
+              <radialGradient id="crisisSun" cx="0.75" cy="0.3" r="0.5">
+                <stop offset="0%" stop-color="#FFD9B0" stop-opacity="0.8"/>
+                <stop offset="100%" stop-color="#FFD9B0" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <!-- sky -->
+            <rect width="400" height="200" fill="url(#crisisSky)"/>
+            <!-- hazy sun -->
+            <circle cx="300" cy="80" r="40" fill="url(#crisisSun)"/>
+            <!-- distant mountains (paler / hazy = pollution feel) -->
+            <path d="M0,180 L60,140 L100,160 L160,120 L220,150 L280,130 L340,155 L400,140 L400,200 L0,200 Z"
+                  fill="#A8D8DE" opacity="0.55"/>
+            <!-- ground / landfill mound -->
+            <path d="M0,200 Q100,180 200,195 T400,200 L400,300 L0,300 Z" fill="url(#crisisGround)"/>
+            <!-- buried batteries (small rounded rects with subtle decay) -->
+            <g opacity="0.75">
+              <rect x="60" y="220" width="22" height="10" rx="2" fill="#1A2B3A" transform="rotate(-15 71 225)"/>
+              <rect x="110" y="240" width="22" height="10" rx="2" fill="#1A2B3A" transform="rotate(20 121 245)"/>
+              <rect x="170" y="230" width="22" height="10" rx="2" fill="#1A2B3A" transform="rotate(-8 181 235)"/>
+              <rect x="220" y="250" width="22" height="10" rx="2" fill="#1A2B3A" transform="rotate(10 231 255)"/>
+              <rect x="280" y="232" width="22" height="10" rx="2" fill="#1A2B3A" transform="rotate(-22 291 237)"/>
+              <rect x="330" y="248" width="22" height="10" rx="2" fill="#1A2B3A" transform="rotate(15 341 253)"/>
+              <rect x="40" y="255" width="22" height="10" rx="2" fill="#1A2B3A" transform="rotate(8 51 260)"/>
+              <rect x="190" y="265" width="22" height="10" rx="2" fill="#1A2B3A" transform="rotate(-12 201 270)"/>
+            </g>
+            <!-- leaching plume -->
+            <ellipse cx="200" cy="280" rx="180" ry="30" fill="url(#crisisLeach)"/>
+            <!-- water table line -->
+            <path d="M0,290 Q200,285 400,290" stroke="#077A85" stroke-width="1" fill="none" opacity="0.3" stroke-dasharray="3,3"/>
+          </svg>
+          <div class="absolute bottom-3 left-3 right-3 mono text-[9px] tracking-widest uppercase text-midnight/60">
+            Illustrated · Battery waste in landfill, leaching into water table
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Four stat cards in light theme -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-12">
+
+      <div class="stat-block alert-card rounded-2xl p-6">
+        <div class="text-[10px] mono uppercase tracking-widest text-rust mb-3">Daily · U.S.</div>
+        <div class="display text-5xl text-midnight mb-2">~10M</div>
+        <div class="text-sm text-ink-2 leading-relaxed">single-use batteries thrown away every day in the United States.<span class="cite">[Source: EPA / industry est.]</span></div>
+      </div>
+
+      <div class="stat-block alert-card rounded-2xl p-6">
+        <div class="text-[10px] mono uppercase tracking-widest text-rust mb-3">Annually · World</div>
+        <div class="display text-5xl text-midnight mb-2">15B+</div>
+        <div class="text-sm text-ink-2 leading-relaxed">batteries discarded globally each year — most never recovered for recycling.<span class="cite">[Source: IEA est.]</span></div>
+      </div>
+
+      <div class="stat-block alert-card rounded-2xl p-6">
+        <div class="text-[10px] mono uppercase tracking-widest text-rust mb-3">Landfill share</div>
+        <div class="display text-5xl text-midnight mb-2">~85%</div>
+        <div class="text-sm text-ink-2 leading-relaxed">of U.S. household batteries are estimated to end up in landfills rather than recycling streams.<span class="cite">[Source: Call2Recycle]</span></div>
+      </div>
+
+      <div class="stat-block alert-card rounded-2xl p-6">
+        <div class="text-[10px] mono uppercase tracking-widest text-rust mb-3">Toxic chemistry</div>
+        <div class="display text-3xl text-midnight mb-2">Zn · Mn · Cd · Pb · Hg</div>
+        <div class="text-sm text-ink-2 leading-relaxed">heavy metals that can leach from improperly disposed batteries into soil and groundwater over time.<span class="cite">[Source: EPA hazardous waste guidance]</span></div>
+      </div>
+
+    </div>
+
+    <!-- Three narrative cards -->
+    <div class="grid lg:grid-cols-3 gap-4">
+
+      <div class="card rounded-2xl p-7 relative overflow-hidden">
+        <div class="absolute top-4 right-4 mono text-[10px] text-ink-3/40">01</div>
+        <div class="w-12 h-12 rounded-lg bg-rust/10 border border-rust/25 flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-rust" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h3 class="serif text-2xl text-midnight mb-3 leading-tight">The casing cracks.</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">
+          In a landfill, weight, weather, and time crush battery casings. Over years, the protective shell that keeps the chemistry contained begins to fail.<span class="cite">[Source: EPA hazardous waste reports]</span>
+        </p>
+      </div>
+
+      <div class="card rounded-2xl p-7 relative overflow-hidden">
+        <div class="absolute top-4 right-4 mono text-[10px] text-ink-3/40">02</div>
+        <div class="w-12 h-12 rounded-lg bg-rust/10 border border-rust/25 flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-rust" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547"/></svg>
+        </div>
+        <h3 class="serif text-2xl text-midnight mb-3 leading-tight">Heavy metals leach.</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">
+          Rainwater filters through the landfill (creating "leachate") and carries trace metals — zinc, manganese, and in older chemistries cadmium, mercury, and lead — toward soil and groundwater.<span class="cite">[Source: EPA leachate studies]</span>
+        </p>
+      </div>
+
+      <div class="card rounded-2xl p-7 relative overflow-hidden">
+        <div class="absolute top-4 right-4 mono text-[10px] text-ink-3/40">03</div>
+        <div class="w-12 h-12 rounded-lg bg-rust/10 border border-rust/25 flex items-center justify-center mb-5">
+          <svg class="w-6 h-6 text-rust" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.24 17 7.341 18.214 10.155 18.5 11 19 12c1.5 3 .5 6.657-1.343 6.657z"/></svg>
+        </div>
+        <h3 class="serif text-2xl text-midnight mb-3 leading-tight">Fires get sparked.</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">
+          Lithium and lithium-ion batteries in trash streams have been linked to a rise in waste-facility fires across the U.S. and Europe. Improperly discarded batteries are now one of the fastest-growing fire risks at material recovery facilities.<span class="cite">[Source: Reuters / EPA reporting]</span>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="mt-10 max-w-3xl mx-auto text-center">
+      <p class="text-xs mono text-ink-3 leading-relaxed">
+        Note on numbers: industry and government estimates vary. We use the most widely cited figures and link to sources rather than pretend we have one tidy number. The trend, across every estimate, is the same direction.
+      </p>
+    </div>
+  </div>
+
+  <!-- Wave divider into solution section -->
+  <svg class="wave-divider mt-20" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,30 Q360,60 720,30 T1440,30 L1440,60 L0,60 Z" fill="#FAF6EC"/>
+  </svg>
+</section>
+
+<!-- ============= 3. OUR SOLUTION ============= -->
+<section id="shop" class="relative py-24 lg:py-32 bg-sand">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="grid lg:grid-cols-12 gap-10 items-start mb-16">
+      <div class="lg:col-span-7">
+        <div class="sec-num mb-3">03 / The Solution</div>
+        <h2 class="display text-5xl md:text-7xl text-midnight leading-[0.95] mb-5">
+          Plug it in. Power it up. <span class="serif-italic text-paleblue normal-case">Power it again. And again.</span>
+        </h2>
+        <p class="text-lg text-ink-2 leading-relaxed">
+          Six sizes. One charging cable you already own. Engineered to deliver constant voltage, smart protection circuitry, and the kind of cycle count that makes a single battery outlast roughly a thousand of its disposable cousins.<span class="cite">[Source: Paleblue specs]</span>
+        </p>
+      </div>
+
+      <!-- SVG illustration: batteries by a calm shoreline at golden hour -->
+      <div class="lg:col-span-5">
+        <div class="aspect-[4/3] rounded-2xl overflow-hidden card relative">
+          <svg viewBox="0 0 400 300" class="w-full h-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="solnSky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FFD9B0" stop-opacity="0.5"/>
+                <stop offset="60%" stop-color="#E6F4F1"/>
+                <stop offset="100%" stop-color="#A8D8DE"/>
+              </linearGradient>
+              <linearGradient id="solnOcean" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#6FBDC4"/>
+                <stop offset="100%" stop-color="#077A85"/>
+              </linearGradient>
+              <linearGradient id="solnSand" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#FAF6EC"/>
+                <stop offset="100%" stop-color="#D9C9A0"/>
+              </linearGradient>
+              <radialGradient id="solnSun" cx="0.7" cy="0.3" r="0.4">
+                <stop offset="0%" stop-color="#FFD9B0" stop-opacity="0.9"/>
+                <stop offset="60%" stop-color="#FFD9B0" stop-opacity="0.4"/>
+                <stop offset="100%" stop-color="#FFD9B0" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
+            <!-- sky -->
+            <rect width="400" height="200" fill="url(#solnSky)"/>
+            <!-- glowing sun -->
+            <circle cx="280" cy="90" r="50" fill="url(#solnSun)"/>
+            <circle cx="280" cy="90" r="22" fill="#FFD9B0" opacity="0.75"/>
+            <!-- distant mountains -->
+            <path d="M0,170 L80,130 L140,150 L200,110 L260,140 L320,125 L400,145 L400,180 L0,180 Z"
+                  fill="#A8D8DE" opacity="0.7"/>
+            <!-- ocean -->
+            <rect y="180" width="400" height="50" fill="url(#solnOcean)"/>
+            <!-- sun reflection on water -->
+            <ellipse cx="280" cy="195" rx="40" ry="3" fill="#FFD9B0" opacity="0.6"/>
+            <ellipse cx="280" cy="205" rx="55" ry="2" fill="#FFD9B0" opacity="0.4"/>
+            <ellipse cx="280" cy="215" rx="35" ry="2" fill="#FFD9B0" opacity="0.3"/>
+            <!-- shoreline / sand -->
+            <path d="M0,230 Q200,220 400,228 L400,300 L0,300 Z" fill="url(#solnSand)"/>
+            <!-- driftwood -->
+            <ellipse cx="120" cy="250" rx="55" ry="6" fill="#8B6F47" opacity="0.6"/>
+            <rect x="70" y="247" width="100" height="8" rx="4" fill="#A0825A"/>
+            <!-- two Paleblue batteries on the driftwood -->
+            <g transform="translate(95, 232)">
+              <rect width="22" height="14" rx="2" fill="#10C1D0"/>
+              <rect x="22" y="3" width="3" height="8" fill="#077A85"/>
+              <rect x="2" y="2" width="18" height="10" rx="1" fill="#FAF6EC"/>
+              <rect x="4" y="5" width="10" height="4" fill="#10C1D0" opacity="0.5"/>
+            </g>
+            <g transform="translate(130, 232)">
+              <rect width="22" height="14" rx="2" fill="#10C1D0"/>
+              <rect x="22" y="3" width="3" height="8" fill="#077A85"/>
+              <rect x="2" y="2" width="18" height="10" rx="1" fill="#FAF6EC"/>
+              <rect x="4" y="5" width="10" height="4" fill="#10C1D0" opacity="0.5"/>
+            </g>
+          </svg>
+          <div class="absolute bottom-3 left-3 right-3 mono text-[9px] tracking-widest uppercase text-midnight/60">
+            Illustrated · Paleblue rechargeables · Driftwood · Golden hour
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product grid: 6 SKUs -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+
+      <div class="card rounded-2xl p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-[10px] mono uppercase tracking-widest text-deep-sea mb-1">Bestseller</div>
+            <h3 class="display text-3xl text-midnight">AA · USB-C</h3>
+          </div>
+          <div class="w-10 h-10 rounded-lg bg-sky border border-paleblue/30 flex items-center justify-center mono text-xs text-deep-sea">AA</div>
+        </div>
+        <div class="aspect-[5/3] mb-4 rounded-lg bg-gradient-to-br from-seafoam to-sky border border-paleblue/15 flex items-center justify-center">
+          <svg viewBox="0 0 200 80" class="w-2/3 h-2/3" fill="none">
+            <rect x="8" y="20" width="160" height="40" rx="6" fill="#10C1D0" stroke="#077A85" stroke-width="1.5"/>
+            <rect x="168" y="32" width="14" height="16" rx="2" fill="#077A85"/>
+            <rect x="14" y="26" width="148" height="28" rx="3" fill="#FAF6EC"/>
+            <rect x="20" y="33" width="100" height="14" rx="2" fill="#10C1D0" opacity="0.6"/>
+            <text x="135" y="46" fill="#077A85" font-family="JetBrains Mono" font-size="11" font-weight="700">AA</text>
+          </svg>
+        </div>
+        <div class="text-sm text-ink-2 leading-relaxed mb-4">
+          The everyday workhorse. Remotes, controllers, cameras, smart locks. 1.5V constant voltage. Fast USB-C charging. 1,000+ cycles.
+        </div>
+        <div class="flex items-center text-[11px] mono mb-4">
+          <span class="px-2 py-0.5 rounded-md bg-seafoam text-kelp border border-leaf/30">Saves ~1,000 disposables</span>
+        </div>
+        <button class="btn-dark w-full px-5 py-3 rounded-lg text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2">
+          Shop AA → <span class="text-paleblue">[$]</span>
+        </button>
+      </div>
+
+      <div class="card rounded-2xl p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-[10px] mono uppercase tracking-widest text-deep-sea mb-1">Popular</div>
+            <h3 class="display text-3xl text-midnight">AAA · USB-C</h3>
+          </div>
+          <div class="w-10 h-10 rounded-lg bg-sky border border-paleblue/30 flex items-center justify-center mono text-xs text-deep-sea">AAA</div>
+        </div>
+        <div class="aspect-[5/3] mb-4 rounded-lg bg-gradient-to-br from-seafoam to-sky border border-paleblue/15 flex items-center justify-center">
+          <svg viewBox="0 0 200 80" class="w-2/3 h-2/3" fill="none">
+            <rect x="20" y="22" width="140" height="36" rx="5" fill="#10C1D0" stroke="#077A85" stroke-width="1.5"/>
+            <rect x="160" y="32" width="12" height="16" rx="2" fill="#077A85"/>
+            <rect x="26" y="28" width="128" height="24" rx="3" fill="#FAF6EC"/>
+            <rect x="32" y="34" width="86" height="12" rx="2" fill="#10C1D0" opacity="0.6"/>
+            <text x="128" y="46" fill="#077A85" font-family="JetBrains Mono" font-size="10" font-weight="700">AAA</text>
+          </svg>
+        </div>
+        <div class="text-sm text-ink-2 leading-relaxed mb-4">
+          Small electronics, headlamps, RC gear, tea lights. Same chemistry, smaller form factor.
+        </div>
+        <div class="flex items-center text-[11px] mono mb-4">
+          <span class="px-2 py-0.5 rounded-md bg-seafoam text-kelp border border-leaf/30">Saves ~1,000 disposables</span>
+        </div>
+        <button class="btn-dark w-full px-5 py-3 rounded-lg text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2">
+          Shop AAA → <span class="text-paleblue">[$]</span>
+        </button>
+      </div>
+
+      <div class="card rounded-2xl p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-[10px] mono uppercase tracking-widest text-deep-sea mb-1">Smoke detectors</div>
+            <h3 class="display text-3xl text-midnight">9V · USB-C</h3>
+          </div>
+          <div class="w-10 h-10 rounded-lg bg-sky border border-paleblue/30 flex items-center justify-center mono text-xs text-deep-sea">9V</div>
+        </div>
+        <div class="aspect-[5/3] mb-4 rounded-lg bg-gradient-to-br from-seafoam to-sky border border-paleblue/15 flex items-center justify-center">
+          <svg viewBox="0 0 200 120" class="w-1/2 h-2/3" fill="none">
+            <rect x="60" y="12" width="80" height="96" rx="6" fill="#10C1D0" stroke="#077A85" stroke-width="1.5"/>
+            <circle cx="85" cy="22" r="4" fill="#FAF6EC"/>
+            <circle cx="115" cy="22" r="4" fill="#FAF6EC"/>
+            <text x="100" y="78" text-anchor="middle" fill="#FAF6EC" font-family="JetBrains Mono" font-size="14" font-weight="700">9V</text>
+          </svg>
+        </div>
+        <div class="text-sm text-ink-2 leading-relaxed mb-4">
+          Smoke alarms, multimeters, wireless mics, instruments. Reliable 9V output where it matters most.
+        </div>
+        <div class="flex items-center text-[11px] mono mb-4">
+          <span class="px-2 py-0.5 rounded-md bg-seafoam text-kelp border border-leaf/30">Saves hundreds of 9Vs</span>
+        </div>
+        <button class="btn-dark w-full px-5 py-3 rounded-lg text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2">
+          Shop 9V → <span class="text-paleblue">[$]</span>
+        </button>
+      </div>
+
+      <div class="card rounded-2xl p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-[10px] mono uppercase tracking-widest text-deep-sea mb-1">High-drain</div>
+            <h3 class="display text-3xl text-midnight">C · USB-C</h3>
+          </div>
+          <div class="w-10 h-10 rounded-lg bg-sky border border-paleblue/30 flex items-center justify-center mono text-xs text-deep-sea">C</div>
+        </div>
+        <div class="aspect-[5/3] mb-4 rounded-lg bg-gradient-to-br from-seafoam to-sky border border-paleblue/15 flex items-center justify-center">
+          <svg viewBox="0 0 200 100" class="w-2/3 h-2/3" fill="none">
+            <rect x="16" y="22" width="160" height="56" rx="6" fill="#10C1D0" stroke="#077A85" stroke-width="1.5"/>
+            <rect x="176" y="38" width="14" height="24" rx="2" fill="#077A85"/>
+            <text x="96" y="56" text-anchor="middle" fill="#FAF6EC" font-family="JetBrains Mono" font-size="16" font-weight="700">C</text>
+          </svg>
+        </div>
+        <div class="text-sm text-ink-2 leading-relaxed mb-4">
+          Lanterns, larger flashlights, radios, kids' toys. Built for the high-drain devices that eat alkalines.
+        </div>
+        <div class="flex items-center text-[11px] mono mb-4">
+          <span class="px-2 py-0.5 rounded-md bg-seafoam text-kelp border border-leaf/30">Saves ~1,000 disposables</span>
+        </div>
+        <button class="btn-dark w-full px-5 py-3 rounded-lg text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2">
+          Shop C → <span class="text-paleblue">[$]</span>
+        </button>
+      </div>
+
+      <div class="card rounded-2xl p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-[10px] mono uppercase tracking-widest text-deep-sea mb-1">Long-haul</div>
+            <h3 class="display text-3xl text-midnight">D · USB-C</h3>
+          </div>
+          <div class="w-10 h-10 rounded-lg bg-sky border border-paleblue/30 flex items-center justify-center mono text-xs text-deep-sea">D</div>
+        </div>
+        <div class="aspect-[5/3] mb-4 rounded-lg bg-gradient-to-br from-seafoam to-sky border border-paleblue/15 flex items-center justify-center">
+          <svg viewBox="0 0 200 120" class="w-3/4 h-3/4" fill="none">
+            <rect x="10" y="20" width="170" height="80" rx="7" fill="#10C1D0" stroke="#077A85" stroke-width="1.5"/>
+            <rect x="180" y="46" width="14" height="28" rx="2" fill="#077A85"/>
+            <text x="96" y="68" text-anchor="middle" fill="#FAF6EC" font-family="JetBrains Mono" font-size="20" font-weight="700">D</text>
+          </svg>
+        </div>
+        <div class="text-sm text-ink-2 leading-relaxed mb-4">
+          Big lanterns, megaphones, emergency radios. 6.9-hour full-charge. Replaces up to 1,000 single-use D batteries.<span class="cite">[Source: Paleblue specs]</span>
+        </div>
+        <div class="flex items-center text-[11px] mono mb-4">
+          <span class="px-2 py-0.5 rounded-md bg-seafoam text-kelp border border-leaf/30">Saves ~1,000 disposables</span>
+        </div>
+        <button class="btn-dark w-full px-5 py-3 rounded-lg text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2">
+          Shop D → <span class="text-paleblue">[$]</span>
+        </button>
+      </div>
+
+      <div class="card rounded-2xl p-6">
+        <div class="flex items-start justify-between mb-4">
+          <div>
+            <div class="text-[10px] mono uppercase tracking-widest text-deep-sea mb-1">Tactical · Photo</div>
+            <h3 class="display text-3xl text-midnight">CR123A · USB-C</h3>
+          </div>
+          <div class="w-10 h-10 rounded-lg bg-sky border border-paleblue/30 flex items-center justify-center mono text-[10px] text-deep-sea">CR</div>
+        </div>
+        <div class="aspect-[5/3] mb-4 rounded-lg bg-gradient-to-br from-seafoam to-sky border border-paleblue/15 flex items-center justify-center">
+          <svg viewBox="0 0 200 100" class="w-1/2 h-2/3" fill="none">
+            <rect x="50" y="14" width="100" height="72" rx="5" fill="#10C1D0" stroke="#077A85" stroke-width="1.5"/>
+            <rect x="150" y="36" width="12" height="28" rx="2" fill="#077A85"/>
+            <text x="100" y="56" text-anchor="middle" fill="#FAF6EC" font-family="JetBrains Mono" font-size="12" font-weight="700">CR123A</text>
+          </svg>
+        </div>
+        <div class="text-sm text-ink-2 leading-relaxed mb-4">
+          Tactical flashlights, photo gear, smart-home sensors. 3V constant voltage. 100-minute charge time.<span class="cite">[Source: Paleblue specs]</span>
+        </div>
+        <div class="flex items-center text-[11px] mono mb-4">
+          <span class="px-2 py-0.5 rounded-md bg-seafoam text-kelp border border-leaf/30">Saves hundreds</span>
+        </div>
+        <button class="btn-dark w-full px-5 py-3 rounded-lg text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2">
+          Shop CR123A → <span class="text-paleblue">[$]</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Universal feature strip -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+      <div class="rounded-xl p-5 bg-white border border-paleblue/15">
+        <div class="flex items-center gap-2 mb-2">
+          <svg class="w-4 h-4 text-paleblue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          <div class="text-[10px] mono uppercase tracking-widest text-deep-sea">USB-C native</div>
+        </div>
+        <div class="text-sm text-ink-2 leading-snug">Charge with the cable you already own. No proprietary docks.</div>
+      </div>
+      <div class="rounded-xl p-5 bg-white border border-paleblue/15">
+        <div class="flex items-center gap-2 mb-2">
+          <svg class="w-4 h-4 text-paleblue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          <div class="text-[10px] mono uppercase tracking-widest text-deep-sea">1,000+ cycles</div>
+        </div>
+        <div class="text-sm text-ink-2 leading-snug">Engineered for one thousand-plus recharges per battery.<span class="cite">[Source: Paleblue]</span></div>
+      </div>
+      <div class="rounded-xl p-5 bg-white border border-paleblue/15">
+        <div class="flex items-center gap-2 mb-2">
+          <svg class="w-4 h-4 text-paleblue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          <div class="text-[10px] mono uppercase tracking-widest text-deep-sea">Smart protection</div>
+        </div>
+        <div class="text-sm text-ink-2 leading-snug">Built-in circuitry guards against overcharge, overheat, short-circuit.</div>
+      </div>
+      <div class="rounded-xl p-5 bg-white border border-paleblue/15">
+        <div class="flex items-center gap-2 mb-2">
+          <svg class="w-4 h-4 text-paleblue" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/></svg>
+          <div class="text-[10px] mono uppercase tracking-widest text-deep-sea">Lifetime warranty</div>
+        </div>
+        <div class="text-sm text-ink-2 leading-snug">Limited lifetime warranty on manufacturing defects. 30-day returns.<span class="cite">[Source: Paleblue policy]</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <svg class="wave-divider mt-20" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,30 Q360,0 720,30 T1440,30 L1440,60 L0,60 Z" fill="#E6F4F1"/>
+  </svg>
+</section>
+
+<!-- ============= 4. HOW IT WORKS ============= -->
+<section id="how" class="relative py-24 lg:py-32 bg-sky">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="max-w-3xl mb-16">
+      <div class="sec-num mb-3">04 / How It Works</div>
+      <h2 class="display text-5xl md:text-7xl text-midnight leading-[0.95] mb-5">
+        Four steps. <span class="serif-italic text-paleblue normal-case">A thousand fewer batteries in landfill.</span>
+      </h2>
+      <p class="text-lg text-ink-2 leading-relaxed">
+        There's no magic here. Just a better engineering choice — one that compounds across a lifetime of use.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-4 gap-4">
+
+      <div class="card rounded-2xl p-7">
+        <div class="display text-7xl text-paleblue/40 leading-none mb-4">01</div>
+        <h3 class="display text-2xl text-midnight mb-3">Charge anywhere</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">
+          Plug straight into any USB-C cable — laptop, phone charger, car, power bank. No proprietary docks, no separate charger to lose.
+        </p>
+      </div>
+
+      <div class="card rounded-2xl p-7">
+        <div class="display text-7xl text-paleblue/40 leading-none mb-4">02</div>
+        <h3 class="display text-2xl text-midnight mb-3">Power 1,000+ times</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">
+          Engineered for one thousand-plus full recharge cycles per battery. Constant 1.5V output keeps high-drain devices running like new.<span class="cite">[Source: Paleblue]</span>
+        </p>
+      </div>
+
+      <div class="card rounded-2xl p-7">
+        <div class="display text-7xl text-leaf/50 leading-none mb-4">03</div>
+        <h3 class="display text-2xl text-midnight mb-3">Keep toxins out</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">
+          Every cycle is roughly one fewer disposable in a landfill. Multiply that by years of use, by every battery in your home — it adds up fast.
+        </p>
+      </div>
+
+      <div class="card rounded-2xl p-7">
+        <div class="display text-7xl text-leaf/50 leading-none mb-4">04</div>
+        <h3 class="display text-2xl text-midnight mb-3">Recycle at end of life</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">
+          When the cycle finally ends, drop yours at any approved battery recycling center — most hardware stores and many municipalities offer free drop-off.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+  <svg class="wave-divider mt-20" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,30 Q360,60 720,30 T1440,30 L1440,60 L0,60 Z" fill="#FAF6EC"/>
+  </svg>
+</section>
+
+<!-- ============= 5. REAL IMPACT ============= -->
+<section id="impact" class="relative py-24 lg:py-32 bg-sand">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="grid lg:grid-cols-12 gap-10 items-start mb-16">
+      <div class="lg:col-span-7">
+        <div class="sec-num mb-3">05 / Impact</div>
+        <h2 class="display text-5xl md:text-7xl text-midnight leading-[0.95] mb-5">
+          Stewardship, <span class="serif-italic text-leaf normal-case">in numbers.</span>
+        </h2>
+        <p class="text-lg text-ink-2 leading-relaxed">
+          We don't believe in greenwashing. Here's what one Paleblue household typically displaces — and what we're doing as a company beyond just shipping a better product.
+        </p>
+      </div>
+
+      <!-- SVG: Earth from space view, transitioning to healthy oceans -->
+      <div class="lg:col-span-5">
+        <div class="aspect-[4/3] rounded-2xl overflow-hidden card relative">
+          <svg viewBox="0 0 400 300" class="w-full h-full" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <radialGradient id="spaceG" cx="0.5" cy="0.5" r="0.8">
+                <stop offset="0%" stop-color="#0A2B3A"/>
+                <stop offset="100%" stop-color="#1A2B3A"/>
+              </radialGradient>
+              <radialGradient id="earthG" cx="0.35" cy="0.35" r="0.7">
+                <stop offset="0%" stop-color="#A8D8DE"/>
+                <stop offset="50%" stop-color="#10C1D0"/>
+                <stop offset="100%" stop-color="#077A85"/>
+              </radialGradient>
+              <radialGradient id="atmosphereG" cx="0.4" cy="0.4" r="0.7">
+                <stop offset="60%" stop-color="#FFFFFF" stop-opacity="0"/>
+                <stop offset="100%" stop-color="#A8D8DE" stop-opacity="0.6"/>
+              </radialGradient>
+            </defs>
+            <!-- space background -->
+            <rect width="400" height="300" fill="url(#spaceG)"/>
+            <!-- stars -->
+            <g fill="#FAF6EC" opacity="0.8">
+              <circle cx="50" cy="40" r="0.8"/>
+              <circle cx="120" cy="20" r="0.6"/>
+              <circle cx="200" cy="50" r="1"/>
+              <circle cx="320" cy="30" r="0.7"/>
+              <circle cx="380" cy="80" r="0.8"/>
+              <circle cx="30" cy="120" r="0.6"/>
+              <circle cx="370" cy="180" r="0.9"/>
+              <circle cx="50" cy="250" r="0.7"/>
+              <circle cx="350" cy="260" r="0.8"/>
+              <circle cx="180" cy="280" r="0.6"/>
+              <circle cx="90" cy="180" r="0.5"/>
+              <circle cx="280" cy="200" r="0.6"/>
+            </g>
+            <!-- atmosphere glow -->
+            <circle cx="200" cy="160" r="125" fill="url(#atmosphereG)"/>
+            <!-- earth disc -->
+            <circle cx="200" cy="160" r="105" fill="url(#earthG)"/>
+            <!-- continents (abstract) -->
+            <g fill="#6BAE6E" opacity="0.85">
+              <path d="M150,120 Q160,110 175,115 Q190,120 185,140 Q175,150 165,145 Q150,140 150,120 Z"/>
+              <path d="M210,135 Q230,130 245,140 Q255,155 245,170 Q230,175 220,170 Q205,160 210,135 Z"/>
+              <path d="M170,180 Q185,175 200,180 Q210,190 200,205 Q185,210 175,200 Q165,190 170,180 Z"/>
+              <path d="M230,200 Q240,195 250,200 Q255,210 248,220 Q238,222 232,215 Q225,208 230,200 Z"/>
+            </g>
+            <!-- highlight on earth -->
+            <ellipse cx="170" cy="125" rx="35" ry="20" fill="#FAF6EC" opacity="0.15"/>
+          </svg>
+          <div class="absolute bottom-3 left-3 right-3 mono text-[9px] tracking-widest uppercase text-sand/70">
+            Earth · One planet · Every cycle counts
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive impact calculator -->
+    <div class="card rounded-2xl p-6 lg:p-10 mb-10">
+      <div class="grid lg:grid-cols-12 gap-8">
+        <div class="lg:col-span-5">
+          <div class="text-[10px] mono uppercase tracking-widest text-deep-sea mb-3">Drag the slider</div>
+          <h3 class="serif text-3xl text-midnight leading-tight mb-4">How many disposable batteries does your household burn through in a year?</h3>
+          <p class="text-sm text-ink-2 leading-relaxed mb-6">
+            A typical home goes through more than they think — every remote, smoke detector, kid's toy, headlamp, and gadget compounds. Be honest. Then see what switching looks like.
+          </p>
+          <div class="space-y-2">
+            <div class="flex justify-between items-baseline">
+              <span class="text-[10px] mono uppercase tracking-widest text-ink-3">Per year</span>
+              <span class="display text-4xl text-midnight"><span id="dispCount" class="ticker">60</span></span>
+            </div>
+            <input id="dispSlider" type="range" min="10" max="500" step="10" value="60"
+                   class="w-full h-2 bg-seafoam rounded-lg appearance-none cursor-pointer accent-paleblue">
+            <div class="flex justify-between text-[9px] mono text-ink-3">
+              <span>10</span><span>100</span><span>250</span><span>500</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 grid sm:grid-cols-2 gap-3">
+          <div class="rounded-xl p-5 bg-seafoam border border-leaf/25">
+            <div class="text-[9px] uppercase tracking-widest text-kelp mono mb-2">Over 10 years</div>
+            <div class="display text-3xl lg:text-4xl text-midnight ticker"><span id="tenYr">600</span></div>
+            <div class="text-[11px] text-ink-2 mt-1">disposables kept out of landfill if you switched today</div>
+          </div>
+          <div class="rounded-xl p-5 bg-seafoam border border-leaf/25">
+            <div class="text-[9px] uppercase tracking-widest text-kelp mono mb-2">CO₂e avoided</div>
+            <div class="display text-3xl lg:text-4xl text-midnight"><span id="co2Out" class="ticker">~30</span> kg</div>
+            <div class="text-[11px] text-ink-2 mt-1">est. lifecycle reduction vs. equivalent disposables<span class="cite">[Source: lifecycle est.]</span></div>
+          </div>
+          <div class="rounded-xl p-5 bg-sky border border-paleblue/20">
+            <div class="text-[9px] uppercase tracking-widest text-deep-sea mono mb-2">Battery purchases avoided</div>
+            <div class="display text-3xl lg:text-4xl text-midnight"><span id="purchasesOut" class="ticker">600</span></div>
+            <div class="text-[11px] text-ink-2 mt-1">single-use packs you never have to buy</div>
+          </div>
+          <div class="rounded-xl p-5 bg-parchment border border-ember/30">
+            <div class="text-[9px] uppercase tracking-widest text-ember mono mb-2">Money saved (rough)</div>
+            <div class="display text-3xl lg:text-4xl text-midnight">$<span id="moneyOut" class="ticker">450</span></div>
+            <div class="text-[11px] text-ink-2 mt-1">vs. equivalent disposables at typical retail<span class="cite">[Source: retail avg.]</span></div>
+          </div>
+        </div>
+      </div>
+      <p class="text-[10px] mono text-ink-3 mt-6 leading-relaxed">
+        These are illustrative estimates based on common usage patterns and lifecycle studies — not guarantees. Actual results depend on your devices, charging habits, and battery care.
+      </p>
+    </div>
+
+    <!-- Stewardship pillars -->
+    <div class="grid lg:grid-cols-3 gap-4">
+      <div class="rounded-2xl p-7 border border-leaf/25 bg-seafoam">
+        <div class="text-[10px] mono uppercase tracking-widest text-kelp mb-3">01 · Membership</div>
+        <h3 class="display text-2xl text-midnight mb-3">1% for the Planet</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">
+          Paleblue commits a portion of revenue to verified environmental nonprofits through the 1% for the Planet network.<span class="cite">[Verify: brand publicly states this]</span>
+        </p>
+      </div>
+      <div class="rounded-2xl p-7 border border-leaf/25 bg-seafoam">
+        <div class="text-[10px] mono uppercase tracking-widest text-kelp mb-3">02 · Design</div>
+        <h3 class="display text-2xl text-midnight mb-3">Built for recyclability</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">
+          Lithium-ion chemistry recovers a high percentage of its valuable materials when properly recycled. We make end-of-life drop-off simple — and we'll help you find a center.
+        </p>
+      </div>
+      <div class="rounded-2xl p-7 border border-leaf/25 bg-seafoam">
+        <div class="text-[10px] mono uppercase tracking-widest text-kelp mb-3">03 · Transparency</div>
+        <h3 class="display text-2xl text-midnight mb-3">Sources, not slogans</h3>
+        <p class="text-sm text-ink-2 leading-relaxed">
+          Every environmental claim on this site points to a source. When numbers vary across studies, we show the range. We'd rather be honest than dramatic.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <svg class="wave-divider mt-20" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,30 Q360,0 720,30 T1440,30 L1440,60 L0,60 Z" fill="#F5EDE0"/>
+  </svg>
+</section>
+
+<!-- ============= 6. BUNDLES ============= -->
+<section class="relative py-24 lg:py-32 bg-parchment">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="max-w-3xl mb-16">
+      <div class="sec-num mb-3">06 / Bundles</div>
+      <h2 class="display text-5xl md:text-7xl text-midnight leading-[0.95] mb-5">
+        Make the switch <span class="serif-italic text-paleblue normal-case">in one move.</span>
+      </h2>
+      <p class="text-lg text-ink-2 leading-relaxed">
+        The fastest way out of the disposable habit is to stop buying them altogether. These bundles cover the gear most homes burn batteries on — pick the one that matches your life.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-4 mb-6">
+
+      <div class="card rounded-2xl p-7 relative">
+        <div class="absolute top-5 right-5 px-2 py-0.5 rounded-md bg-paleblue/15 text-deep-sea border border-paleblue/30 text-[10px] mono uppercase tracking-widest">Most popular</div>
+        <div class="text-[10px] mono uppercase tracking-widest text-deep-sea mb-2">Starter</div>
+        <h3 class="display text-3xl text-midnight mb-2">AA &amp; AAA Sustainability Kit</h3>
+        <p class="text-sm text-ink-2 mb-4 leading-relaxed">Jump-start the switch. The essential AA + AAA pack — most homes' two highest-use sizes.</p>
+        <div class="rounded-lg p-4 bg-seafoam border border-leaf/25 mb-4">
+          <div class="text-[10px] mono uppercase tracking-widest text-kelp mb-1">Lifetime impact (est.)</div>
+          <div class="text-sm text-ink">Keeps roughly <strong class="text-kelp">~8,000 disposables</strong> out of landfill across the kit's full cycle life.<span class="cite">[Source: 1,000+ cycles × pack size]</span></div>
+        </div>
+        <button class="btn-dark w-full px-5 py-3 rounded-lg text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2">
+          Shop Sustainability Kit → <span class="text-paleblue">[$]</span>
+        </button>
+      </div>
+
+      <div class="card rounded-2xl p-7 relative">
+        <div class="text-[10px] mono uppercase tracking-widest text-deep-sea mb-2">Whole-house</div>
+        <h3 class="display text-3xl text-midnight mb-2">Home Conversion Kit</h3>
+        <p class="text-sm text-ink-2 mb-4 leading-relaxed">The all-sizes pack. AA, AAA, C, D, 9V — replaces practically every disposable in the junk drawer.</p>
+        <div class="rounded-lg p-4 bg-seafoam border border-leaf/25 mb-4">
+          <div class="text-[10px] mono uppercase tracking-widest text-kelp mb-1">Lifetime impact (est.)</div>
+          <div class="text-sm text-ink">Replaces an estimated <strong class="text-kelp">15,000+ disposables</strong> over the kit's cycle life.<span class="cite">[Source: 1,000+ cycles × pack size]</span></div>
+        </div>
+        <button class="btn-dark w-full px-5 py-3 rounded-lg text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2">
+          Shop Conversion Kit → <span class="text-paleblue">[$]</span>
+        </button>
+      </div>
+
+      <div class="card rounded-2xl p-7 relative">
+        <div class="text-[10px] mono uppercase tracking-widest text-deep-sea mb-2">Adventure</div>
+        <h3 class="display text-3xl text-midnight mb-2">Voyager Kit</h3>
+        <p class="text-sm text-ink-2 mb-4 leading-relaxed">For headlamps, GPS, cameras, and anything you take past the trailhead. Compact, USB-C, and ready when you are.</p>
+        <div class="rounded-lg p-4 bg-seafoam border border-leaf/25 mb-4">
+          <div class="text-[10px] mono uppercase tracking-widest text-kelp mb-1">Lifetime impact (est.)</div>
+          <div class="text-sm text-ink">A lighter pack with the same <strong class="text-kelp">1,000+ cycles per cell</strong> — measured in fewer batteries hauled into and out of the backcountry.<span class="cite">[Source: Paleblue specs]</span></div>
+        </div>
+        <button class="btn-dark w-full px-5 py-3 rounded-lg text-xs uppercase tracking-wider inline-flex items-center justify-center gap-2">
+          Shop Voyager Kit → <span class="text-paleblue">[$]</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Solar bundle row -->
+    <div class="grid lg:grid-cols-2 gap-4">
+      <div class="card rounded-2xl p-7">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-lg bg-sunrise border border-ember/40 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-ember" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" stroke-linejoin="round"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.07-7.07l-1.414 1.414M6.343 17.657l-1.414 1.414m12.728 0l-1.414-1.414M6.343 6.343L4.929 4.929"/></svg>
+          </div>
+          <div>
+            <div class="text-[10px] mono uppercase tracking-widest text-ember mb-1">Solar power kit</div>
+            <h3 class="display text-2xl text-midnight mb-2">AA &amp; AAA + Approach 2 Solar</h3>
+            <p class="text-sm text-ink-2 leading-relaxed mb-4">21-watt foldable solar charger + AA &amp; AAA rechargeables. Off-grid power without ever buying another disposable.</p>
+            <button class="btn-ghost px-5 py-2.5 rounded-lg text-xs uppercase tracking-wider">
+              Shop Solar Kit → <span class="text-paleblue">[$]</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="card rounded-2xl p-7">
+        <div class="flex items-start gap-4">
+          <div class="w-12 h-12 rounded-lg bg-sunrise border border-ember/40 flex items-center justify-center flex-shrink-0">
+            <svg class="w-6 h-6 text-ember" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path stroke-linecap="round" stroke-linejoin="round" d="M12 2v2m0 16v2m10-10h-2M4 12H2m15.07-7.07l-1.414 1.414M6.343 17.657l-1.414 1.414m12.728 0l-1.414-1.414M6.343 6.343L4.929 4.929"/></svg>
+          </div>
+          <div>
+            <div class="text-[10px] mono uppercase tracking-widest text-ember mb-1">Solar starter</div>
+            <h3 class="display text-2xl text-midnight mb-2">AA + Approach 1 Solar Starter</h3>
+            <p class="text-sm text-ink-2 leading-relaxed mb-4">Compact Approach 1 panel + a starter pack of AA rechargeables. The lightest entry into off-grid rechargeable power.</p>
+            <button class="btn-ghost px-5 py-2.5 rounded-lg text-xs uppercase tracking-wider">
+              Shop Starter → <span class="text-paleblue">[$]</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============= 7. TESTIMONIALS ============= -->
+<section class="relative py-24 lg:py-32 bg-sand">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="max-w-3xl mb-16">
+      <div class="sec-num mb-3">07 / Reviews</div>
+      <h2 class="display text-5xl md:text-7xl text-midnight leading-[0.95] mb-5">
+        What our customers <span class="serif-italic text-paleblue normal-case">actually say.</span>
+      </h2>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-5 mb-10">
+
+      <div class="card rounded-2xl p-7">
+        <div class="flex items-center gap-1 mb-4 text-ember">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.956a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.366 2.446a1 1 0 00-.363 1.118l1.286 3.956c.3.921-.755 1.688-1.54 1.118L10 14.347 6.636 16.79c-.785.57-1.84-.197-1.54-1.118l1.286-3.956a1 1 0 00-.363-1.118L2.654 8.34c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.956z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.956a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.366 2.446a1 1 0 00-.363 1.118l1.286 3.956c.3.921-.755 1.688-1.54 1.118L10 14.347 6.636 16.79c-.785.57-1.84-.197-1.54-1.118l1.286-3.956a1 1 0 00-.363-1.118L2.654 8.34c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.956z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.956a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.366 2.446a1 1 0 00-.363 1.118l1.286 3.956c.3.921-.755 1.688-1.54 1.118L10 14.347 6.636 16.79c-.785.57-1.84-.197-1.54-1.118l1.286-3.956a1 1 0 00-.363-1.118L2.654 8.34c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.956z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.956a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.366 2.446a1 1 0 00-.363 1.118l1.286 3.956c.3.921-.755 1.688-1.54 1.118L10 14.347 6.636 16.79c-.785.57-1.84-.197-1.54-1.118l1.286-3.956a1 1 0 00-.363-1.118L2.654 8.34c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.956z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.956a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.366 2.446a1 1 0 00-.363 1.118l1.286 3.956c.3.921-.755 1.688-1.54 1.118L10 14.347 6.636 16.79c-.785.57-1.84-.197-1.54-1.118l1.286-3.956a1 1 0 00-.363-1.118L2.654 8.34c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.956z"/></svg>
+        </div>
+        <p class="text-[15px] text-ink leading-relaxed mb-6 serif italic">
+          "I received my first Paleblue batteries as a gift and I was hooked. They save money, last a long time, work reliably and are easy to charge. Highly recommended!"
+        </p>
+        <div class="flex items-center gap-3 pt-5 border-t border-paleblue/15">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-paleblue to-deep-sea flex items-center justify-center text-sand text-xs font-bold">EB</div>
+          <div>
+            <div class="text-sm font-semibold text-midnight">Eric B.</div>
+            <div class="text-[11px] text-ink-3">Verified customer · Paleblue site</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card rounded-2xl p-7">
+        <div class="flex items-center gap-1 mb-4 text-ember">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.956a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.366 2.446a1 1 0 00-.363 1.118l1.286 3.956c.3.921-.755 1.688-1.54 1.118L10 14.347 6.636 16.79c-.785.57-1.84-.197-1.54-1.118l1.286-3.956a1 1 0 00-.363-1.118L2.654 8.34c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.956z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.956a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.366 2.446a1 1 0 00-.363 1.118l1.286 3.956c.3.921-.755 1.688-1.54 1.118L10 14.347 6.636 16.79c-.785.57-1.84-.197-1.54-1.118l1.286-3.956a1 1 0 00-.363-1.118L2.654 8.34c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.956z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.956a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.366 2.446a1 1 0 00-.363 1.118l1.286 3.956c.3.921-.755 1.688-1.54 1.118L10 14.347 6.636 16.79c-.785.57-1.84-.197-1.54-1.118l1.286-3.956a1 1 0 00-.363-1.118L2.654 8.34c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.956z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.956a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.366 2.446a1 1 0 00-.363 1.118l1.286 3.956c.3.921-.755 1.688-1.54 1.118L10 14.347 6.636 16.79c-.785.57-1.84-.197-1.54-1.118l1.286-3.956a1 1 0 00-.363-1.118L2.654 8.34c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.956z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.956a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.366 2.446a1 1 0 00-.363 1.118l1.286 3.956c.3.921-.755 1.688-1.54 1.118L10 14.347 6.636 16.79c-.785.57-1.84-.197-1.54-1.118l1.286-3.956a1 1 0 00-.363-1.118L2.654 8.34c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.956z"/></svg>
+        </div>
+        <p class="text-[15px] text-ink leading-relaxed mb-6 serif italic">
+          "[Replace with real customer quote — 2 to 3 sentences about specific use case like smoke detectors, headlamps, or how many disposables they've avoided buying.]"
+        </p>
+        <div class="flex items-center gap-3 pt-5 border-t border-paleblue/15">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-leaf to-kelp flex items-center justify-center text-sand text-xs font-bold">[--]</div>
+          <div>
+            <div class="text-sm font-semibold text-midnight">[Replace: First L.]</div>
+            <div class="text-[11px] text-ink-3">[Replace: Verified customer]</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card rounded-2xl p-7">
+        <div class="flex items-center gap-1 mb-4 text-ember">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.956a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.366 2.446a1 1 0 00-.363 1.118l1.286 3.956c.3.921-.755 1.688-1.54 1.118L10 14.347 6.636 16.79c-.785.57-1.84-.197-1.54-1.118l1.286-3.956a1 1 0 00-.363-1.118L2.654 8.34c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.956z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.956a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.366 2.446a1 1 0 00-.363 1.118l1.286 3.956c.3.921-.755 1.688-1.54 1.118L10 14.347 6.636 16.79c-.785.57-1.84-.197-1.54-1.118l1.286-3.956a1 1 0 00-.363-1.118L2.654 8.34c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.956z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.956a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.366 2.446a1 1 0 00-.363 1.118l1.286 3.956c.3.921-.755 1.688-1.54 1.118L10 14.347 6.636 16.79c-.785.57-1.84-.197-1.54-1.118l1.286-3.956a1 1 0 00-.363-1.118L2.654 8.34c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.956z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.956a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.366 2.446a1 1 0 00-.363 1.118l1.286 3.956c.3.921-.755 1.688-1.54 1.118L10 14.347 6.636 16.79c-.785.57-1.84-.197-1.54-1.118l1.286-3.956a1 1 0 00-.363-1.118L2.654 8.34c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.956z"/></svg>
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.286 3.956a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.366 2.446a1 1 0 00-.363 1.118l1.286 3.956c.3.921-.755 1.688-1.54 1.118L10 14.347 6.636 16.79c-.785.57-1.84-.197-1.54-1.118l1.286-3.956a1 1 0 00-.363-1.118L2.654 8.34c-.783-.57-.38-1.81.588-1.81h4.162a1 1 0 00.95-.69l1.286-3.956z"/></svg>
+        </div>
+        <p class="text-[15px] text-ink leading-relaxed mb-6 serif italic">
+          "[Replace with second real customer quote — ideally an adventure/outdoor or family use case to show range.]"
+        </p>
+        <div class="flex items-center gap-3 pt-5 border-t border-paleblue/15">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-br from-sunrise to-ember flex items-center justify-center text-midnight text-xs font-bold">[--]</div>
+          <div>
+            <div class="text-sm font-semibold text-midnight">[Replace: First L.]</div>
+            <div class="text-[11px] text-ink-3">[Replace: Verified customer]</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-[11px] mono uppercase tracking-wider text-ink-3">
+      <span class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-paleblue"></span> Free shipping over $50</span>
+      <span class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-paleblue"></span> 30-day returns</span>
+      <span class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-paleblue"></span> Limited lifetime warranty</span>
+      <span class="flex items-center gap-2"><span class="w-1 h-1 rounded-full bg-paleblue"></span> 1% for the Planet</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============= 8. WHY PALEBLUE / MISSION ============= -->
+<section id="mission" class="relative py-24 lg:py-32 bg-seafoam">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="grid lg:grid-cols-12 gap-10 items-start">
+
+      <div class="lg:col-span-5 lg:sticky lg:top-24">
+        <div class="sec-num mb-3">08 / Why Paleblue</div>
+        <h2 class="display text-5xl md:text-6xl text-midnight leading-[0.95] mb-6">
+          A company built for <span class="serif-italic text-kelp normal-case">people who give a damn.</span>
+        </h2>
+        <p class="text-ink-2 leading-relaxed mb-4">
+          Paleblue Earth was founded in <strong class="text-midnight">Park City, Utah</strong> to solve a problem nobody else seemed willing to: the quiet, ongoing avalanche of single-use batteries that flow from American households into landfills every day.
+        </p>
+        <p class="text-ink-2 leading-relaxed mb-4">
+          The bet was simple. Most people <em>want</em> to do the right thing. They just don't want a worse product. So we built a better one — USB-C native, 1,000+ recharge cycles, smart protection circuitry, constant voltage — and made it cost about what a few packs of disposables would over a year.
+        </p>
+        <p class="text-ink-2 leading-relaxed">
+          We're not the loudest company in the eco-tech aisle. We're the one whose batteries show up in your headlamp years later, still working.
+        </p>
+      </div>
+
+      <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4">
+
+        <div class="card rounded-2xl p-6">
+          <div class="text-[10px] mono uppercase tracking-widest text-deep-sea mb-3">Performance</div>
+          <h3 class="serif text-2xl text-midnight mb-2">Constant 1.5V output</h3>
+          <p class="text-sm text-ink-2 leading-relaxed">Alkalines fade over their life. Paleblue holds steady voltage to the end — better performance in high-drain gear like headlamps and game controllers.</p>
+        </div>
+        <div class="card rounded-2xl p-6">
+          <div class="text-[10px] mono uppercase tracking-widest text-deep-sea mb-3">Convenience</div>
+          <h3 class="serif text-2xl text-midnight mb-2">No proprietary chargers</h3>
+          <p class="text-sm text-ink-2 leading-relaxed">USB-C means the same cable you use for your phone, laptop, or car. Charge in any room, in any car, from any power bank.</p>
+        </div>
+        <div class="rounded-2xl p-6 bg-white border border-leaf/30">
+          <div class="text-[10px] mono uppercase tracking-widest text-kelp mb-3">Sustainability</div>
+          <h3 class="serif text-2xl text-midnight mb-2">1,000+ cycles, then recyclable</h3>
+          <p class="text-sm text-ink-2 leading-relaxed">A single Paleblue replaces roughly a thousand disposables. At end-of-life, drop it at any approved battery recycling center to recover materials.</p>
+        </div>
+        <div class="rounded-2xl p-6 bg-white border border-leaf/30">
+          <div class="text-[10px] mono uppercase tracking-widest text-kelp mb-3">Stewardship</div>
+          <h3 class="serif text-2xl text-midnight mb-2">1% for the Planet</h3>
+          <p class="text-sm text-ink-2 leading-relaxed">A portion of revenue goes to verified environmental nonprofits through the 1% for the Planet network.<span class="cite">[Verify]</span></p>
+        </div>
+        <div class="rounded-2xl p-6 bg-white border border-ember/30">
+          <div class="text-[10px] mono uppercase tracking-widest text-ember mb-3">Trust</div>
+          <h3 class="serif text-2xl text-midnight mb-2">Limited lifetime warranty</h3>
+          <p class="text-sm text-ink-2 leading-relaxed">Manufacturing defects and normal-use failures are covered for the life of the product. 30-day returns on top.</p>
+        </div>
+        <div class="rounded-2xl p-6 bg-white border border-ember/30">
+          <div class="text-[10px] mono uppercase tracking-widest text-ember mb-3">Made in Park City</div>
+          <h3 class="serif text-2xl text-midnight mb-2">Real people, real address</h3>
+          <p class="text-sm text-ink-2 leading-relaxed">A small team in Park City, Utah. Email us, call us, find us. Not a brand-of-the-week dropshipper.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============= 9. IMPACT HUB ============= -->
+<section class="relative py-24 lg:py-32 bg-sand">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="max-w-3xl mb-12">
+      <div class="sec-num mb-3">09 / Impact Hub</div>
+      <h2 class="display text-5xl md:text-6xl text-midnight leading-[0.95] mb-5">
+        Go deeper. <span class="serif-italic text-paleblue normal-case">The stories behind the data.</span>
+      </h2>
+    </div>
+
+    <div class="grid lg:grid-cols-3 gap-4">
+      <a href="#" class="card rounded-2xl p-7 group block">
+        <div class="text-[10px] mono uppercase tracking-widest text-deep-sea mb-3">Research</div>
+        <h3 class="serif text-2xl text-midnight mb-3 group-hover:text-paleblue transition">What actually happens to a AA battery in a landfill?</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">A walk through the chemistry, the timelines, and what science actually knows about leaching and contamination.</p>
+        <span class="text-[11px] mono text-paleblue uppercase tracking-widest">Read article →</span>
+      </a>
+      <a href="#" class="card rounded-2xl p-7 group block">
+        <div class="text-[10px] mono uppercase tracking-widest text-deep-sea mb-3">Field guide</div>
+        <h3 class="serif text-2xl text-midnight mb-3 group-hover:text-paleblue transition">Where to recycle batteries near you</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">Most major U.S. hardware stores accept household batteries for recycling. Here's how to find one in 30 seconds.</p>
+        <span class="text-[11px] mono text-paleblue uppercase tracking-widest">Read guide →</span>
+      </a>
+      <a href="#" class="card rounded-2xl p-7 group block">
+        <div class="text-[10px] mono uppercase tracking-widest text-deep-sea mb-3">Behind the scenes</div>
+        <h3 class="serif text-2xl text-midnight mb-3 group-hover:text-paleblue transition">How we built a rechargeable that holds voltage</h3>
+        <p class="text-sm text-ink-2 leading-relaxed mb-4">The engineering choice that separates Paleblue from older NiMH rechargeables: a regulator chip and constant-voltage chemistry.</p>
+        <span class="text-[11px] mono text-paleblue uppercase tracking-widest">Read story →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============= 10. FAQ ============= -->
+<section id="faq" class="relative py-24 lg:py-32 bg-parchment">
+  <div class="max-w-4xl mx-auto px-6 lg:px-8">
+
+    <div class="mb-16 text-center">
+      <div class="sec-num mb-3">10 / FAQ</div>
+      <h2 class="display text-5xl md:text-7xl text-midnight leading-[0.95] mb-5">
+        Honest answers, <span class="serif-italic text-paleblue normal-case">sources where we have them.</span>
+      </h2>
+    </div>
+
+    <div class="space-y-3">
+
+      <details class="card rounded-xl group">
+        <summary class="cursor-pointer px-6 py-5 flex items-center justify-between gap-4 list-none">
+          <span class="text-base font-semibold text-midnight">Is it actually true that one Paleblue replaces 1,000 disposables?</span>
+          <svg class="w-5 h-5 text-paleblue transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="px-6 pb-5 text-[14px] text-ink-2 leading-relaxed">
+          The number comes from cycle life: each Paleblue is engineered for 1,000+ full recharge cycles. Each cycle delivers comparable runtime to a fresh disposable, so the displacement math is roughly one-to-one. Real-world results depend on the device, care, and how deeply you cycle the battery — but 1,000+ is the design spec, not marketing exaggeration.<span class="cite">[Source: Paleblue specs]</span>
+        </div>
+      </details>
+
+      <details class="card rounded-xl group">
+        <summary class="cursor-pointer px-6 py-5 flex items-center justify-between gap-4 list-none">
+          <span class="text-base font-semibold text-midnight">What's wrong with regular disposable batteries?</span>
+          <svg class="w-5 h-5 text-paleblue transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="px-6 pb-5 text-[14px] text-ink-2 leading-relaxed">
+          The chemistry inside an alkaline battery isn't acutely dangerous in your junk drawer — but at scale, it adds up. Roughly 10 million disposables are tossed per day in the U.S.; estimates suggest about 85% end up in landfills. Over time, casings break down, and trace heavy metals (zinc, manganese, and in older chemistries cadmium or mercury) can leach into landfill leachate. Modern lithium-ion disposables also drive a measurable rise in fires at waste-handling facilities.<span class="cite">[Source: EPA / Call2Recycle / Reuters]</span>
+        </div>
+      </details>
+
+      <details class="card rounded-xl group">
+        <summary class="cursor-pointer px-6 py-5 flex items-center justify-between gap-4 list-none">
+          <span class="text-base font-semibold text-midnight">Do Paleblue batteries work in every device that takes alkalines?</span>
+          <svg class="w-5 h-5 text-paleblue transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="px-6 pb-5 text-[14px] text-ink-2 leading-relaxed">
+          Almost all of them. Paleblue batteries deliver standard 1.5V (or 3V for CR123A) and work in flashlights, remotes, cameras, smart locks, toys, headlamps, and most general electronics. As always, check the device manual — a handful of very-low-drain devices may specify alkaline or a specific battery type.
+        </div>
+      </details>
+
+      <details class="card rounded-xl group">
+        <summary class="cursor-pointer px-6 py-5 flex items-center justify-between gap-4 list-none">
+          <span class="text-base font-semibold text-midnight">How long do they take to charge?</span>
+          <svg class="w-5 h-5 text-paleblue transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="px-6 pb-5 text-[14px] text-ink-2 leading-relaxed">
+          Charge times vary by size. CR123A fully charges in about 100 minutes. D batteries take about 6.9 hours. AA and AAA fall in between. All charge with the included USB-C cable from any standard USB-C source — laptop, phone charger, car, or power bank.<span class="cite">[Source: Paleblue specs]</span>
+        </div>
+      </details>
+
+      <details class="card rounded-xl group">
+        <summary class="cursor-pointer px-6 py-5 flex items-center justify-between gap-4 list-none">
+          <span class="text-base font-semibold text-midnight">What do I do when a Paleblue reaches end of life?</span>
+          <svg class="w-5 h-5 text-paleblue transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="px-6 pb-5 text-[14px] text-ink-2 leading-relaxed">
+          Don't trash it. Lithium-ion batteries are recyclable, and the materials inside (lithium, cobalt, nickel, copper) are valuable enough that proper recycling recovers a large share. Most major hardware stores accept household batteries for free recycling. Call2Recycle's locator can find a drop-off near you in 30 seconds.<span class="cite">[Source: Call2Recycle]</span>
+        </div>
+      </details>
+
+      <details class="card rounded-xl group">
+        <summary class="cursor-pointer px-6 py-5 flex items-center justify-between gap-4 list-none">
+          <span class="text-base font-semibold text-midnight">Are they safe? What about overcharging or fires?</span>
+          <svg class="w-5 h-5 text-paleblue transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="px-6 pb-5 text-[14px] text-ink-2 leading-relaxed">
+          Every Paleblue battery includes built-in protection circuitry against overcharging, over-discharge, over-temperature, and short-circuit. As with any lithium-ion battery: charge with standard USB-C sources, don't store at extreme temperatures, and stop using a cell that shows physical damage or unusual heating.
+        </div>
+      </details>
+
+      <details class="card rounded-xl group">
+        <summary class="cursor-pointer px-6 py-5 flex items-center justify-between gap-4 list-none">
+          <span class="text-base font-semibold text-midnight">What's your return policy?</span>
+          <svg class="w-5 h-5 text-paleblue transition-transform group-open:rotate-180" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+        </summary>
+        <div class="px-6 pb-5 text-[14px] text-ink-2 leading-relaxed">
+          30-day returns on any order. Limited lifetime warranty covers manufacturing defects and normal-use failures. Free shipping on orders over $50.
+        </div>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============= 11. FINAL CTA ============= -->
+<section class="relative py-24 lg:py-32 bg-sand overflow-hidden">
+  <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(ellipse at center, rgba(255, 217, 176, 0.35) 0%, transparent 60%);"></div>
+
+  <div class="max-w-5xl mx-auto px-6 lg:px-8 relative text-center">
+
+    <div class="sec-num mb-3">11 / Join The Mission</div>
+    <h2 class="display text-5xl md:text-7xl lg:text-8xl text-midnight leading-[0.92] mb-5">
+      Stop buying disposables.<br/>
+      <span class="serif-italic text-paleblue normal-case">Start powering the planet.</span>
+    </h2>
+    <p class="text-lg text-ink-2 max-w-2xl mx-auto leading-relaxed mb-10">
+      Try the AA &amp; AAA Sustainability Kit. If you don't love them, send them back within 30 days — no questions, full refund. Lifetime warranty after that. The risk is on us. The impact is on the planet.
+    </p>
+
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
+      <a href="#shop" class="btn-primary px-8 py-4 rounded-lg text-sm uppercase tracking-wider inline-flex items-center gap-2 w-full sm:w-auto justify-center">
+        Make The Switch
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+      </a>
+      <a href="#crisis" class="btn-ghost px-8 py-4 rounded-lg text-sm uppercase tracking-wider inline-flex items-center gap-2 w-full sm:w-auto justify-center">
+        Learn More First
+      </a>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-[11px] mono uppercase tracking-wider text-ink-3">
+      <span>✓ Free shipping over $50</span>
+      <span>✓ 30-day risk-free returns</span>
+      <span>✓ Limited lifetime warranty</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============= FOOTER ============= -->
+<footer class="relative pt-16 pb-8 bg-midnight text-sand">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <div class="grid lg:grid-cols-12 gap-10 mb-12">
+
+      <div class="lg:col-span-4">
+        <div class="flex items-center gap-3 mb-5">
+          <svg viewBox="0 0 64 64" class="w-9 h-9" aria-label="Paleblue Earth">
+            <circle cx="32" cy="8"  r="3.5" fill="#10C1D0"/>
+            <circle cx="49" cy="15" r="2.8" fill="#10C1D0"/>
+            <circle cx="56" cy="32" r="3.5" fill="#10C1D0"/>
+            <circle cx="49" cy="49" r="2.8" fill="#10C1D0"/>
+            <circle cx="32" cy="56" r="3.5" fill="#10C1D0"/>
+            <circle cx="15" cy="49" r="2.8" fill="#10C1D0"/>
+            <circle cx="8"  cy="32" r="3.5" fill="#10C1D0"/>
+            <circle cx="15" cy="15" r="2.8" fill="#10C1D0"/>
+            <circle cx="32" cy="32" r="7" fill="#10C1D0"/>
+          </svg>
+          <div class="leading-none">
+            <div class="text-[24px] font-bold tracking-tight"><span class="text-sand/65">pale</span><span class="text-paleblue">blue</span></div>
+            <div class="text-[9px] text-paleblue tracking-[0.25em] uppercase font-mono mt-0.5">Earth · Powered</div>
+          </div>
+        </div>
+        <p class="text-[14px] text-sand/70 leading-relaxed max-w-sm mb-6">
+          USB-C rechargeable lithium batteries built to outlast and outperform disposables. Park City, Utah. Member, 1% for the Planet.
+        </p>
+      </div>
+
+      <div class="lg:col-span-2">
+        <div class="text-[10px] mono uppercase tracking-widest text-sand/50 mb-4">Shop</div>
+        <ul class="space-y-2 text-[13px] text-sand/75">
+          <li><a href="#shop" class="hover:text-paleblue transition">AA · USB-C</a></li>
+          <li><a href="#shop" class="hover:text-paleblue transition">AAA · USB-C</a></li>
+          <li><a href="#shop" class="hover:text-paleblue transition">9V · USB-C</a></li>
+          <li><a href="#shop" class="hover:text-paleblue transition">C · USB-C</a></li>
+          <li><a href="#shop" class="hover:text-paleblue transition">D · USB-C</a></li>
+          <li><a href="#shop" class="hover:text-paleblue transition">CR123A · USB-C</a></li>
+          <li><a href="#shop" class="hover:text-paleblue transition">Bundles</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-2">
+        <div class="text-[10px] mono uppercase tracking-widest text-sand/50 mb-4">Learn</div>
+        <ul class="space-y-2 text-[13px] text-sand/75">
+          <li><a href="#crisis" class="hover:text-paleblue transition">The Crisis</a></li>
+          <li><a href="#impact" class="hover:text-paleblue transition">Impact</a></li>
+          <li><a href="#mission" class="hover:text-paleblue transition">Our Mission</a></li>
+          <li><a href="#how" class="hover:text-paleblue transition">How It Works</a></li>
+          <li><a href="#faq" class="hover:text-paleblue transition">FAQ</a></li>
+          <li><a href="#" class="hover:text-paleblue transition">Recycling Locator</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-4">
+        <div class="text-[10px] mono uppercase tracking-widest text-sand/50 mb-4">Stay charged</div>
+        <p class="text-[13px] text-sand/75 mb-4 leading-relaxed">Quarterly briefings on battery waste, sustainability, and product news. No spam, ever.</p>
+        <form class="flex gap-2" onsubmit="event.preventDefault(); alert('Newsletter signup placeholder — connect to your ESP.')">
+          <input type="email" required placeholder="you@example.com"
+                 class="flex-1 px-4 py-2.5 rounded-lg bg-sand/10 border border-sand/15 text-sm text-sand placeholder:text-sand/40 focus:outline-none focus:border-paleblue/50 transition"/>
+          <button type="submit" class="btn-primary px-4 py-2.5 rounded-lg text-xs uppercase tracking-wider whitespace-nowrap">
+            Subscribe
+          </button>
+        </form>
+
+        <div class="mt-6 flex flex-wrap items-center gap-2 text-[10px] mono uppercase tracking-widest text-sand/50">
+          <span class="px-2 py-1 rounded border border-leaf/40 text-leaf">1% for the Planet</span>
+          <span class="px-2 py-1 rounded border border-paleblue/40 text-paleblue">USB-C</span>
+          <span class="px-2 py-1 rounded border border-sunrise/40 text-sunrise">Lifetime Warranty</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pt-8 border-t border-sand/15 flex flex-col md:flex-row gap-4 items-center justify-between text-[12px] text-sand/45">
+      <div>© <span id="footYear">2026</span> Paleblue Earth. All rights reserved.</div>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-paleblue transition">Privacy</a>
+        <a href="#" class="hover:text-paleblue transition">Terms</a>
+        <a href="#" class="hover:text-paleblue transition">Warranty</a>
+        <a href="#" class="hover:text-paleblue transition">Recycling Info</a>
+      </div>
+      <div class="mono text-[10px]">Park City, UT</div>
+    </div>
+
+  </div>
+</footer>
+
+</main>
+
+<script>
+  // Live "tossed" ticker
+  const liveCounter = document.getElementById('liveCounter');
+  const liveTossed = document.getElementById('liveTossed');
+  const TOSS_RATE = 115; // per second (~10M/day)
+  const now = new Date();
+  const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0);
+  const secondsSinceMidnight = Math.floor((now - midnight) / 1000);
+  let baseCount = secondsSinceMidnight * TOSS_RATE;
+  let arrivedAt = Date.now();
+
+  function fmtBig(n) { return Math.round(n).toLocaleString('en-US'); }
+  function tickLive() {
+    const elapsed = (Date.now() - arrivedAt) / 1000;
+    const totalToday = baseCount + Math.floor(elapsed * TOSS_RATE);
+    const sinceYouArrived = Math.floor(elapsed * TOSS_RATE);
+    if (liveCounter) liveCounter.textContent = fmtBig(totalToday);
+    if (liveTossed)  liveTossed.textContent  = fmtBig(sinceYouArrived);
+  }
+  setInterval(tickLive, 250);
+  tickLive();
+
+  // Impact calculator
+  const dispSlider = document.getElementById('dispSlider');
+  const dispCount = document.getElementById('dispCount');
+  const tenYr = document.getElementById('tenYr');
+  const co2Out = document.getElementById('co2Out');
+  const purchasesOut = document.getElementById('purchasesOut');
+  const moneyOut = document.getElementById('moneyOut');
+
+  function fmt(n) { return Math.round(n).toLocaleString('en-US'); }
+  function updateImpact() {
+    if (!dispSlider) return;
+    const n = parseInt(dispSlider.value, 10);
+    dispCount.textContent = fmt(n);
+    const ten = n * 10;
+    tenYr.textContent = fmt(ten);
+    co2Out.textContent = '~' + fmt(ten * 0.05);
+    purchasesOut.textContent = fmt(ten);
+    moneyOut.textContent = fmt(ten * 0.75);
+  }
+  if (dispSlider) {
+    dispSlider.addEventListener('input', updateImpact);
+    updateImpact();
+  }
+
+  // Footer year
+  const fy = document.getElementById('footYear');
+  if (fy) fy.textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
